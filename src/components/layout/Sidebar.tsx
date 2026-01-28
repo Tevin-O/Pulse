@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Activity, BarChart3, Globe, Moon, ShieldAlert, Sun, Users, ZapOff } from "lucide-react";
+import { Activity, BarChart3, Globe, Moon, Search, ShieldAlert, Sun, Users, ZapOff } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -11,6 +11,7 @@ import { useZenMode } from "@/components/providers/ZenModeContext";
 const NAV_ITEMS = [
     { label: "The Sentinel", href: "/", icon: ShieldAlert },
     { label: "War Room", href: "/war-room", icon: Users },
+    { label: "Queries", href: "/queries", icon: Search },
     { label: "Policy Sim", href: "/policy-sim", icon: Activity },
     { label: "Intel Reports", href: "/reports", icon: BarChart3 },
 ];

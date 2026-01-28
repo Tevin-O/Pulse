@@ -29,6 +29,11 @@ export class SessionManager {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
     }
 
+    deleteSession(id: string): void {
+        const sessions = this.getHistory().filter(s => s.id !== id);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
+    }
+
     getHistory(): Session[] {
         if (typeof window === "undefined") return [];
 

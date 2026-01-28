@@ -129,6 +129,17 @@ export function PolicyReasoningAgent() {
         }
     };
 
+    const handleDeleteSession = (id: string) => {
+        sessionManager.current.deleteSession(id);
+        const updated = sessionManager.current.getHistory();
+        setSessions(updated);
+
+        // If deleted session was active, create new one
+        if (currentSession?.id === id) {
+            handleNewSession();
+        }
+    };
+
     // Suggestions
     const suggestions = suggestionAgent.current.getSuggestions();
 
@@ -139,6 +150,7 @@ export function PolicyReasoningAgent() {
                 sessions={sessions}
                 currentSessionId={currentSession?.id || ""}
                 onSelectSession={handleSelectSession}
+                onDeleteSession={handleDeleteSession}
             />
 
             {/* Main Content */}
