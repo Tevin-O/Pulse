@@ -1,4 +1,8 @@
-import { ReportGenerator } from "@/components/reports/ReportGenerator";
+import dynamic from 'next/dynamic';
+
+const ReportGenerator = dynamic(() => import('@/components/reports/ReportGenerator').then(mod => mod.ReportGenerator), {
+    ssr: false
+});
 
 export default function ReportsPage() {
     return (
